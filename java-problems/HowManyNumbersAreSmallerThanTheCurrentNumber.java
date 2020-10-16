@@ -36,6 +36,9 @@ Constraints:
     0 <= nums[i] <= 100
 */
 
+// time complexity: O(n) to O(n^2) depending on the sort
+//                      (Array.sort should be quicksort for primitives)
+// space complexity: O(n) (3n but that generalizes to n)
 // VERSION 2
 import java.util.Arrays;
 
@@ -73,6 +76,8 @@ Runtime: 2 ms
 Memory Usage: 39.2 MB
 */
 
+// time complexity: O(n^2) because of the nested for loops
+// space complexity: O(n)
 // VERSION 1
 /*
 class HowManyNumbersAreSmallerThanTheCurrentNumber {
