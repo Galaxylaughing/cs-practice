@@ -39,6 +39,30 @@ Constraints:
 
 class BestTimeToBuyAndSellStockII {
     public int maxProfit(int[] prices) {
+        int minPriceDay = 0;
+        int totalProfit = 0;
+        int maxProfitForTransaction = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] - prices[minPriceDay] > maxProfitForTransaction) {
+                maxProfitForTransaction = prices[i] - prices[minPriceDay];
+            } else if (prices[i] - prices[minPriceDay] < maxProfitForTransaction) {
+                minPriceDay = i;
+                totalProfit += maxProfitForTransaction;
+                maxProfitForTransaction = 0;
+            }
+        }
+        return totalProfit + maxProfitForTransaction;
+    }
+}
+/*
+200 / 200 test cases passed.
+Runtime: 1 ms
+Memory Usage: 38.3 MB
+*/
+
+/*
+class BestTimeToBuyAndSellStockII {
+    public int maxProfit(int[] prices) {
         int minPriceDay = -1;
         int totalProfit = 0;
         int maxProfitForTransaction = 0;
@@ -56,7 +80,7 @@ class BestTimeToBuyAndSellStockII {
         return totalProfit + maxProfitForTransaction;
     }
 }
-
+*/
 /*
 200 / 200 test cases passed.
 Runtime: 1 ms
